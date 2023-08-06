@@ -1,4 +1,4 @@
-# ngu-toolkit
+# NGU Toolkit
 
 NGU Toolkit is an assistant process for the game NGU Idle. It uses cross-process memory inspection to provide some useful utilities for the game.
 
