@@ -5,7 +5,7 @@ import Cooking from "./components/Cooking/Cooking";
 import Notifications from "./components/Notifications/Notifications";
 
 function App() {
-  const [menuSelection, setMenuSelection] = useState<MenuSelection>(MenuSelection.Cooking);
+  const [menuSelection, setMenuSelection] = useState<MenuSelection>(MenuSelection.Notifications);
 
   const renderMenuSelection = () => {
     switch(menuSelection) {
