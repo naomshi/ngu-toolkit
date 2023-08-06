@@ -15,18 +15,7 @@ Checks for your current adventure zone, sending a desktop notification if you en
 Calculates the best combination of Cooking ingredients and prints them to the terminal (may be inaccurate currently - try increasing or decreasing ingredients slightly if the total is a bit below 100%).
 
 ## Installation
-I'll make a release build once a few more features have been added, currently you can try it out by cloning the repo and doing `cargo run`
-
-## Usage
-Currently works as a CLI application with a few commands:
-
-| Command  | Description |
-| ------------- | ------------- |
-| quest  | Sends desktop notification upon detected quest completion  |
-| adventure | Sends desktop notification when idling in adventure  |
-| cooking | Shows optimal ingredient allocation for cooking  |
-
-Run with `./ngu-toolkit.exe <COMMAND>`
+Download one of the installers from the [releases](https://github.com/naomshi/ngu-toolkit/releases) section and run it. The application will be installed as `ngu-toolkit`.
 
 ## Known issues
 - Currently the cooking feature might be slightly off. If it doesnt give you 100%, try cycling individual ingredients from 1-20 (This has worked for me every time so far)
