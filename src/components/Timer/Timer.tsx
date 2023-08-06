@@ -36,7 +36,7 @@ const Timer: React.FC<NavbarProps> = ({ timerName, name, description, img }) => 
       <div className="flex justify-between items-center mb-2">
         <div className="flex items-center">
           <img src={"/img/assets/" + img} className="mr-2 w-12"/>
-          <div className="text-left mr-6">
+          <div className="text-left mr-12">
             <p className="text-md font-bold">{name}</p>
             <p>{description}</p>
           </div>

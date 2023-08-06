@@ -5,3 +5,4 @@ pub mod macguffin;
 pub mod notification;
 pub mod questing;
 pub mod util;
+pub mod yggdrasil;

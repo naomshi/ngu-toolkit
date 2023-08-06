@@ -12,6 +12,7 @@ const Notifications = () => {
                     <Timer timerName={TimerName.Quest} name="Questing" description="Triggers when you have enough items to complete a quest." img="quest.png" />
                     <Timer timerName={TimerName.Muffin} name="Muffin" description="Triggers if you're trying to rebirth without a muffin active." img="muffin.png" />
                     <Timer timerName={TimerName.Inventory} name="Inventory" description="Triggers when your inventory is full." img="inventory.png" />
+                    <Timer timerName={TimerName.Yggdrasil} name="Yggdrasil" description="Triggers when a Yggdrasil fruit is ready to harvest." img="yggdrasil.png" />
                 </li>
             </ul>
         </>

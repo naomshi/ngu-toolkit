@@ -7,5 +7,6 @@ export enum TimerName {
     Quest,
     Adventure,
     Muffin,
-    Inventory
+    Inventory,
+    Yggdrasil
 }

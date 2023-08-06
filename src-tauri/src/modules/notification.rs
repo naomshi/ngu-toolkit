@@ -5,14 +5,15 @@ use winrt_notification::{Sound, Toast, Duration as NotifDuration};
 
 use crate::modules::adventure;
 
-use super::{questing, util::ProcessState, macguffin, inventory};
+use super::{questing, util::ProcessState, macguffin, inventory, yggdrasil};
 
 #[derive(Eq, Hash, PartialEq, Deserialize, Debug, Clone)]
 pub enum TimerName {
     Quest,
     Adventure,
     Muffin,
-    Inventory
+    Inventory,
+    Yggdrasil
 }
 
 pub struct TimerStatus {
@@ -26,6 +27,7 @@ impl TimerStatus {
         timers.insert(TimerName::Adventure, false);
         timers.insert(TimerName::Muffin, false);
         timers.insert(TimerName::Inventory, false);
+        timers.insert(TimerName::Yggdrasil, false);
 
         TimerStatus {
             timers
@@ -98,6 +100,12 @@ pub fn check_and_notify(timer_status: Arc<Mutex<TimerStatus>>) {
         if *timers.get(&TimerName::Inventory).unwrap_or(&false) {
             if inventory::check_inventory_full(&process_state.process, process_state.character_ptr) {
                 show_notification("Inventory Full", "Your inventory is full.");
+            }
+        }
+
+        if *timers.get(&TimerName::Yggdrasil).unwrap_or(&false) {
+            if yggdrasil::check_fruit_ready(&process_state.process, process_state.character_ptr) {
+                show_notification("Fruit Ready", "One of your Yggdrasil fruits is ready to harvest.");
             }
         }
     
