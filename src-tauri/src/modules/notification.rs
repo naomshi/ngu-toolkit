@@ -5,13 +5,14 @@ use winrt_notification::{Sound, Toast, Duration as NotifDuration};
 
 use crate::modules::adventure;
 
-use super::{questing, util::ProcessState};
+use super::{questing, util::ProcessState, macguffin, inventory};
 
 #[derive(Eq, Hash, PartialEq, Deserialize, Debug, Clone)]
 pub enum TimerName {
     Quest,
     Adventure,
-    Cooking,
+    Muffin,
+    Inventory
 }
 
 pub struct TimerStatus {
@@ -23,7 +24,8 @@ impl TimerStatus {
         let mut timers = HashMap::new();
         timers.insert(TimerName::Quest, false);
         timers.insert(TimerName::Adventure, false);
-        timers.insert(TimerName::Cooking, false);
+        timers.insert(TimerName::Muffin, false);
+        timers.insert(TimerName::Inventory, false);
 
         TimerStatus {
             timers
@@ -76,7 +78,7 @@ pub fn check_and_notify(timer_status: Arc<Mutex<TimerStatus>>) {
         };
         
         if *timers.get(&TimerName::Quest).unwrap_or(&false) {
-            if questing::quest_check(&process_state.process, &process_state.module, process_state.character_ptr){
+            if questing::check_quest(&process_state.process, &process_state.module, process_state.character_ptr){
                 show_notification("Quest", "You have enough items to complete your quest.");
             }
         }
@@ -84,6 +86,18 @@ pub fn check_and_notify(timer_status: Arc<Mutex<TimerStatus>>) {
         if *timers.get(&TimerName::Adventure).unwrap_or(&false) {
             if adventure::check_idle(&process_state.process, &process_state.module) {
                 show_notification("Adventure", "You are idle in adventure mode.");
+            }
+        }
+
+        if *timers.get(&TimerName::Muffin).unwrap_or(&false) {
+            if macguffin::check_muffin_time(&process_state.process, process_state.character_ptr) {
+                show_notification("Muffin", "Remember to activate your muffin before rebirthing!");
+            }
+        }
+
+        if *timers.get(&TimerName::Inventory).unwrap_or(&false) {
+            if inventory::check_inventory_full(&process_state.process, process_state.character_ptr) {
+                show_notification("Inventory Full", "Your inventory is full.");
             }
         }
     

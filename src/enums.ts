@@ -6,5 +6,6 @@ export enum MenuSelection {
 export enum TimerName {
     Quest,
     Adventure,
-    Cooking,
+    Muffin,
+    Inventory
 }

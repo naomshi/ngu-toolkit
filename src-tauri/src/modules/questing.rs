@@ -51,7 +51,7 @@ pub fn get_inventory_items(process: &Process, module: &Module) -> Vec<Equipment>
     return items;
 }
 
-pub fn quest_check(process: &Process, module: &Module, character_ptr: usize) -> bool {
+pub fn check_quest(process: &Process, module: &Module, character_ptr: usize) -> bool {
     let beast_quest_ptr = process.read_mem_chain::<usize>(vec![character_ptr, 0x338]).unwrap();
 
     let quest_zone = process.read_mem_chain::<i32>(vec![beast_quest_ptr, 0x34]).unwrap();

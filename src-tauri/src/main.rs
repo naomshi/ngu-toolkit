@@ -5,7 +5,7 @@ mod modules;
 
 use std::sync::{Arc, Mutex};
 use once_cell::sync::Lazy;
-use modules::{notification::{TimerStatus, TimerName, self}, cooking};
+use modules::{notification::{TimerStatus, TimerName, self}, cooking, macguffin, util::ProcessState, inventory};
 
 static TIMER_STATUS: Lazy<Arc<Mutex<TimerStatus>>> = Lazy::new(|| Arc::new(Mutex::new(TimerStatus::new())));
 
@@ -41,6 +41,10 @@ fn get_timer(timer_name: TimerName) -> bool {
 }
 
 fn main() {
+    // let process_state = ProcessState::get();
+
+    // println!("{}", inventory::check_inventory_full(&process_state.process, process_state.character_ptr));
+    
     std::thread::spawn(move || {
         notification::check_and_notify(get_timer_status());
     });
