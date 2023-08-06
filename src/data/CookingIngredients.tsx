@@ -47,7 +47,7 @@ export const ingredientsMap: Ingredient[] = [
         name: "A Pretzel",
         multiplier: 1,
         unit: "Pretzel",
-        img: "a_pretzel.png",
+        img: "pretzel.png",
     },
     {
         name: "Candy Canes",

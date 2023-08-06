@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { invoke } from '@tauri-apps/api/tauri';
 import { TimerName } from '../../enums';
 
@@ -11,6 +11,15 @@ type NavbarProps = {
 
 const Timer: React.FC<NavbarProps> = ({ timerName, name, description, img }) => {
     const [checked, setChecked] = useState(false);
+
+    useEffect(() => {
+      const getInitialTimerState = async () => {
+        const timerState: boolean = await invoke("get_timer", { timerName: TimerName[timerName] });
+        setChecked(timerState);
+      };
+
+      getInitialTimerState();
+    }, []);
   
     const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
       const isChecked = e.target.checked;

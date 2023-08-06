@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { invoke } from '@tauri-apps/api/tauri'
-import { Ingredient, IngredientMapping, SolvedIngredient } from "../../interfaces"
+import { IngredientMapping, SolvedIngredient } from "../../interfaces"
 import { ingredientsMap } from "../../data/CookingIngredients"
 
 export default function Cooking() {
