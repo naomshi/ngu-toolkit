@@ -28,6 +28,7 @@ export default function Cooking() {
 
   return (
     <>
+      <h1 className="text-xl font-bold text-center tracking-wide" style={{fontFamily: "TheBoldFont, sans-serif"}}>Cooking</h1>
       <div className="mb-2">Press the button below to calculate the best ingredients combination.</div>
       <button onClick={getIngredientsMap} className="bg-green-600 active:bg-green-500 text-white font-bold py-2 px-4 rounded">
         Solve!
