@@ -1,0 +1,21 @@
+@tailwind base;
+
+@layer base {
+  html {
+    @apply text-neutral-800;
+  }
+  html.dark {
+    @apply text-neutral-50;
+    @apply bg-neutral-800;
+  }
+}
+
+@font-face {
+  font-family: "TheBoldFont";
+  src: url("/font/THEBOLDFONT.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@tailwind components;
+@tailwind utilities;
