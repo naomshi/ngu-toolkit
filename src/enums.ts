@@ -1,6 +1,7 @@
 export enum MenuSelection {
     Cooking,
-    Notifications
+    Notifications,
+    MoneyPit
 }
 
 export enum TimerName {

@@ -4,5 +4,6 @@ pub mod inventory;
 pub mod macguffin;
 pub mod notification;
 pub mod questing;
+pub mod pit;
 pub mod util;
 pub mod yggdrasil;

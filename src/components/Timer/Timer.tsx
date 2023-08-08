@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { invoke } from '@tauri-apps/api/tauri';
 import { TimerName } from '../../enums';
 
-type NavbarProps = {
+type TimerProps = {
   timerName: TimerName,
   name: string,
   description: string,
   img: string
 }
 
-const Timer: React.FC<NavbarProps> = ({ timerName, name, description, img }) => {
+const Timer: React.FC<TimerProps> = ({ timerName, name, description, img }) => {
     const [checked, setChecked] = useState(false);
 
     useEffect(() => {

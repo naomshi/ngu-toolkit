@@ -5,7 +5,7 @@ mod modules;
 
 use std::sync::{Arc, Mutex};
 use once_cell::sync::Lazy;
-use modules::{notification::{TimerStatus, TimerName, self}, cooking};
+use modules::{notification::{TimerStatus, TimerName, self}, cooking, pit};
 
 static TIMER_STATUS: Lazy<Arc<Mutex<TimerStatus>>> = Lazy::new(|| Arc::new(Mutex::new(TimerStatus::new())));
 
@@ -50,7 +50,8 @@ fn main() {
             enable_timer,
             disable_timer,
             get_timer,
-            cooking::solve_cooking
+            cooking::solve_cooking,
+            pit::get_pit_rewards
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

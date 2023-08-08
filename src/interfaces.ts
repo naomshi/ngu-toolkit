@@ -13,3 +13,8 @@ export interface SolvedIngredient {
     property_index: number,
     optimal_value: number
 }
+
+export interface PitRewardMapping {
+    description: string,
+    img: string
+}

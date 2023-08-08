@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar/Navbar";
 import { MenuSelection } from "./enums";
 import Cooking from "./components/Cooking/Cooking";
 import Notifications from "./components/Notifications/Notifications";
+import MoneyPit from "./components/MoneyPit/MoneyPit";
 
 function App() {
   const [menuSelection, setMenuSelection] = useState<MenuSelection>(MenuSelection.Notifications);
@@ -13,6 +14,8 @@ function App() {
         return <Cooking/>
       case MenuSelection.Notifications:
         return <Notifications/>
+      case MenuSelection.MoneyPit:
+        return <MoneyPit/>
     }
   }
 
